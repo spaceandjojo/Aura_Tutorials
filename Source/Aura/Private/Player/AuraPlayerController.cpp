@@ -100,7 +100,7 @@ void AAuraPlayerController::SetupInputComponent()
 	Super::SetupInputComponent();
 
 	UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(InputComponent);
-//将回调函数Move()和输入变量MoveAction绑定在一起，这样就可以根据玩家输入触发回调
+	//将回调函数Move()和输入变量MoveAction绑定在一起，这样就可以根据玩家输入触发回调
 	EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AAuraPlayerController::Move);
 }
 
