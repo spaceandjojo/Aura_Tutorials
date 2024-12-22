@@ -38,5 +38,11 @@ void AAuraEnemy::UnHighlightActor()
 void AAuraEnemy::BeginPlay()
 {
 	Super::BeginPlay();
+	InitAbilityActorInfo();
+}
+
+void AAuraEnemy::InitAbilityActorInfo()
+{
 	AbilitySystemComponent->InitAbilityActorInfo(this,this);//ASC是在构造函数中创建的，所以不用再检测是否有效
+	Cast<UAuraAbilitySystemComponent>(AbilitySystemComponent)->AbilityInfoSet();
 }
