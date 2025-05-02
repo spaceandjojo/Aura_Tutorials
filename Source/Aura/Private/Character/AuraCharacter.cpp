@@ -28,6 +28,7 @@ void AAuraCharacter::PossessedBy(AController* NewController)
 
 	//Init ability actor info for the Server
 	InitAbilityActorInfo();
+	AddCharacterAbilities();//在服务器中赋予GA
 }
 
 void AAuraCharacter::OnRep_PlayerState()
