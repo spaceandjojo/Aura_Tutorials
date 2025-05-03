@@ -37,6 +37,7 @@ void UAuraGameplayAbility_Projectile::SpawnProjectile(UPrimitiveComponent* Targe
 			ESpawnActorCollisionHandlingMethod::AlwaysSpawn);
 
 		//TODO: Give the Projectile a GE Spec for causing Damage.
+
 		Projectile->SetHomingTarget(TargetComponent);
 		Projectile->FinishSpawning(SpawnTransform);
 	}
