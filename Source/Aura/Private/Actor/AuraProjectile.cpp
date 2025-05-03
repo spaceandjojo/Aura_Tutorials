@@ -38,5 +38,11 @@ void AAuraProjectile::OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, 
 	
 }
 
+void AAuraProjectile::SetHomingTarget(UPrimitiveComponent* TargetComponent) const
+{
+	ProjectileMovement->bIsHomingProjectile = true;
+	ProjectileMovement->HomingTargetComponent = TargetComponent;
+}
+
 
 

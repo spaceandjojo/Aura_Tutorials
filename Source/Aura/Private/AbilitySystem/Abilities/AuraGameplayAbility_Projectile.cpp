@@ -12,8 +12,12 @@ void UAuraGameplayAbility_Projectile::ActivateAbility(const FGameplayAbilitySpec
                                                       const FGameplayEventData* TriggerEventData)
 {
 	Super::ActivateAbility(Handle, ActorInfo, ActivationInfo, TriggerEventData);
+}
 
-	const bool bIsServer = HasAuthority(&ActivationInfo);
+void UAuraGameplayAbility_Projectile::SpawnProjectile(UPrimitiveComponent* TargetComponent)
+{
+	//检查是否在server上
+	const bool bIsServer = GetAvatarActorFromActorInfo()->HasAuthority();
 	if (!bIsServer) return;
 
 	ICombatInterface* CombatInterface = Cast<ICombatInterface>(GetAvatarActorFromActorInfo());
@@ -33,7 +37,7 @@ void UAuraGameplayAbility_Projectile::ActivateAbility(const FGameplayAbilitySpec
 			ESpawnActorCollisionHandlingMethod::AlwaysSpawn);
 
 		//TODO: Give the Projectile a GE Spec for causing Damage.
-		
+		Projectile->SetHomingTarget(TargetComponent);
 		Projectile->FinishSpawning(SpawnTransform);
 	}
 }

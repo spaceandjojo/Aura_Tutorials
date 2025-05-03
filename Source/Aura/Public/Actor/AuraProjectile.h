@@ -20,6 +20,8 @@ public:
 	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<UProjectileMovementComponent> ProjectileMovement;
 
+	UFUNCTION()
+	void SetHomingTarget(UPrimitiveComponent* TargetComponent) const;
 protected:
 	virtual void BeginPlay() override;
 
